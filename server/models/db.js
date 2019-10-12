@@ -67,12 +67,21 @@ const syncAndSeed = async () => {
   await conn.sync({ force: true });
 
   const recipes = [
-    { name: 'Chicken Nachos', cusine: 'Mexican', directions: 'Put Chips on oven pan, add cheese and grilled chicken. Cook in oven at 400 degrees for 10 minutes. Add salsa, guacamole and sour cream and enjoy...', healthscore: 4, ingredients: 'Chicken, Cheese, Guacamole, Salsa, Sour Cream', imageURL: '#' }
+    { name: 'Chicken Nachos', cusine: 'Mexican', directions: 'Put Chips on oven pan, add cheese and grilled chicken. Cook in oven at 400 degrees for 10 minutes. Add salsa, guacamole and sour cream and enjoy...', healthscore: 4, ingredients: 'Chicken, Cheese, Guacamole, Salsa, Sour Cream', imageURL: '#' },
+    { name: 'Spaghetti', cusine: 'Italian', directions: 'Heat pasta in boiling water, cook ground beef and add tomato sauce', healthscore: 7, ingredients: 'Pasta, Beef, Tomato sauce', imageURL: '#' },
+    { name: 'Cheeseburger', cusine: 'American', directions: 'Fire up that grill and cook pattie for 5 minutes on each side. Add Cheddar Cheese and smoke for 5 minutes. Toast Bun and add Tomato, Lettuce and Mustard.', healthscore: 4, ingredients: 'Beef, Hamburger Bun, Cheese, Tomato, Lettuce, Mustard', imageURL: '#' },
+    { name: 'Pad Thai', cusine: 'Thai', directions: 'Cook noodles in pan, add peanuts and sauce', healthscore: 8, ingredients: 'Noodles, peanuts, chicken', imageURL: '#' }
   ];
 
+  const [nachos, spaghetti, cheeseburger, padthai] = await Promise.all(recipes.map(async recipe => await Recipe.create(recipe)));
+
   const users = [
-    { username: 'Foodie', email: 'foodie@gmail.com', chefScore: '8', imageURL: '#' }
+    { username: 'foodie', email: 'foodie@gmail.com', chefScore: '8', imageURL: '#' },
+    { username: 'madforfood', email: 'foodmad@yahoo.com', chefScore: '5', imageURL: '#' },
+    { username: 'cookandeat', email: 'cookandeat@gmail.com', chefScore: '9', imageURL: '#' },
+    { username: 'cookguru', email: 'cookguru@hotmail.com', chefScore: '10', imageURL: '#' }
   ];
+  const [foodie, madforfood, cookndaeat, cookguru] = await Promise.all(users.map(async user => await User.create(user)));
 }
 
 
