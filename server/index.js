@@ -1,8 +1,8 @@
 const express = require('express');
-const db = require('./models/db')
-const { syncAndSeed } = require('./models/db');
-const path = require('path');
 const app = express();
+const path = require('path');
+const { syncAndSeed } = require('./models/db');
+app.use('/api', require('./api'));
 
 app.use('/dist', express.static(path.join(__dirname, '../dist')));
 
