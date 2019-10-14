@@ -3,6 +3,9 @@ import { render } from 'react-dom';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import { connect, Provider } from 'react-redux';
 import Home from './Home';
+import Recipes from './Recipes';
+import Users from './Users';
+
 import store, { fetchUsersThunk } from './store';
 
 
@@ -15,6 +18,8 @@ class App extends React.Component {
       <HashRouter>
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route exact path="/users" component={Users} />
+          <Route exact path="/recipes" component={Recipes} />
         </Switch>
       </HashRouter>
     )
