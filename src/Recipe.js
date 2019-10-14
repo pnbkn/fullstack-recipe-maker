@@ -6,7 +6,7 @@ const Recipe = ({ recipes, users, match }) => {
   const findRecipes = recipes.find(recipe => recipe.id === match.params.id)
   const { id, name, cusine, directions, healthscore, ingredients, imageURL, userId } = { ...findRecipes };
   const findUsers = users.find(user => user.id === userId)
-  const { username } = { ...findUsers };
+  const { username, chefScore } = { ...findUsers };
 
 
   return (
@@ -18,7 +18,9 @@ const Recipe = ({ recipes, users, match }) => {
           Directions: {directions}<br />
           Healthscore: {healthscore}<br />
           Ingredients: {ingredients}<br />
-          Created by: {username}</li>
+          Created by: {username}<br />
+          Chef Score: {chefScore}
+        </li>
       </ul>
     </div >
   )
