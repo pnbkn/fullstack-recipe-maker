@@ -11,52 +11,52 @@ Make a website for viewing, creating, and saving recipes. Let's get cooking!
 
 ## Deploying Your Application
 Deploying your application is a way to determine whether it will work on an environment other than your own. It's in your best interest to deploy your application to ensure that someone else cloning your repo, will be able to run it. Once you get your application working locally you should deploy it to heroku. As you commit your changes, you should push those changes to both your github repo and to heroku.
- 
+
 ## Requirements
- 
+
 ### Tier 1
- 
+
 <details>
- 
+
 #### Backend
 
-- [ ] Write a `recipes` model with the following information:
-  - [ ] name - not empty or null
-  - [ ] cuisine - ENUM (restricted to only a handful of values)
-  - [ ] directions - extremely large text
-  - [ ] healthScore - decimal between 0 - 10
-  - [ ] ingredients - string
-  - [ ] imageUrl - with a default value
-- [ ] Write a `users` model with the following information:
-  - [ ] username - not empty or null, unique
-  - [ ] email - not empty or null; must be a valid email
-  - [ ] chefScore - defaults to 0, integer
-  - [ ] imageUrl - with a default value
-- [ ] Recipes can be associated with at most one user, users can have many recipes.
-- [ ] write a method which syncs your database and seeds your data.
+- [ X] Write a `recipes` model with the following information:
+  - [ X] name - not empty or null
+  - [ X] cuisine - ENUM (restricted to only a handful of values)
+  - [ X] directions - extremely large text
+  - [X ] healthScore - decimal between 0 - 10
+  - [ X] ingredients - string
+  - [ X] imageUrl - with a default value
+- [X ] Write a `users` model with the following information:
+  - [ X] username - not empty or null, unique
+  - [ X] email - not empty or null; must be a valid email
+  - [ X] chefScore - defaults to 0, integer
+  - [X ] imageUrl - with a default value
+- [ X] Recipes can be associated with at most one user, users can have many recipes.
+- [ X] write a method which syncs your database and seeds your data.
 
-- [ ] Write a route to serve up all recipes
-- [ ] Write a route to serve up all users
+- [ X] Write a route to serve up all recipes
+- [ X] Write a route to serve up all users
 
 #### Frontend
 - [ ] Write a recipes sub-reducer to manage recipes in your Redux store
-- [ ] Write a users sub-reducer to manage users in your Redux store
-- [ ] Write a home component which has the text Welcome!
+- [X ] Write a users sub-reducer to manage users in your Redux store
+- [ X] Write a home component which has the text Welcome!
 - [ ] Write a component to display a list of all recipes (include their names, images, and cuisine)
 - [ ] Write a component to display a list of all users (usernames, chefScores, and images)
-- [ ] Display the Home component when the url matches `/`
+- [ X] Display the Home component when the url matches `/`
 - [ ] Display the all-recipes component when the url matches `/recipes`
 - [ ] Display the all-users component when the url matches `/users`
 - [ ] Add links to the navbar that can be used to navigate to the recipes view and the users view as well as the home page. The links should show the total number of users and the total number of recipes.
- 
- </details>
- 
- 
 
-### Tier 1b 
- 
+ </details>
+
+
+
+### Tier 1b
+
   <details>
- 
+
 #### Backend
 
 nothing
@@ -65,15 +65,15 @@ nothing
 #### Frontend
 - [ ] create client side methods which calculate the following (you can put this code in a file called mapppers.js)
   - [ ] `topChef` when given a list of recipes and users returns the user who is the top chef (the one with the highest rating)
-  - [ ] `healthyRecipes` when given a list of recipes calculates which recipes have healthScores between 8 and 10 
+  - [ ] `healthyRecipes` when given a list of recipes calculates which recipes have healthScores between 8 and 10
   - [ ] display the information from both of these methods on the home page.
   - [ ] create a link for chefs. Chefs are users who have a recipe. Clicking on that link should navigate to a /chefs route and display only those users who have recipes.
   </details>
- 
+
 ### Tier 2
- 
+
   <details>
- 
+
   #### Backend
 
 - [ ] Write a route to serve up a single recipe (based on its id), _including that recipes'_ user
@@ -95,11 +95,11 @@ nothing
 - [ ] Clicking on the name of a user in the single-recipe view should navigate to show that user in the single-user view
 - [ ] Clicking on the name of a recipe in the single-user view should navigate to show that recipe in the single-recipe view
   </details>
-  
+
   ### Tier 3
-  
+
   <details>
- 
+
  #### Backend
 
 - [ ] Write a route to add a new recipe (if given a user, that users chefScore should increase and that user should be associated with the new recipe)
@@ -119,9 +119,9 @@ nothing
   - [ ] Make an AJAX request that causes the new user to be persisted in the database
   - [ ] Add the new user to the list of users without needing to refresh the page
 
- 
+
  </details>
- 
+
  ### Tier 4
 
 <details>
@@ -144,7 +144,7 @@ nothing
   - [ ] Remove the user from the list of users without needing to refresh the page
 
 </details>
- 
+
  ### Bonus Tier 1
 
 <details>
@@ -187,8 +187,8 @@ nothing
 ### Bonus Tier 3
 
 <details>
- 
- 
+
+
  *Note that this tier includes breaking changes. It would be best to commit your work before moving onto this portion. It may even be worth starting a new branch for this one.*
 
 #### Backend
@@ -214,7 +214,7 @@ nothing
 - Submitting the form with a valid name should:
   - [ ] Make an AJAX request that causes that ingredient to be added to the database and that recipe to be associated with that ingredient
   - [ ] Update the recipe in the current view without needing to refresh the page
-  
+
 </details>
 
 ### Bonus Tier 4: Still want more?
@@ -224,9 +224,9 @@ nothing
 #### Frontend
 
 - [ ] Try researching some UI frameworks (MaterialUI, Bootstrap, Semantic UI, etc.) and incorporating one into your app to add some great styles
-   - [ ] Can you display forms as modals? 
+   - [ ] Can you display forms as modals?
    - [ ] Can you show toaster messages around form submissions?
    - [ ] Can a user easily and intuitively navigate around your app?
-  
+
 </details>
 
