@@ -47,7 +47,7 @@ Deploying your application is a way to determine whether it will work on an envi
 - [X] Display the Home component when the url matches `/`
 - [X] Display the all-recipes component when the url matches `/recipes`
 - [X] Display the all-users component when the url matches `/users`
-- [ ] Add links to the navbar that can be used to navigate to the recipes view and the users view as well as the home page. The links should show the total number of users and the total number of recipes.
+- [X] Add links to the navbar that can be used to navigate to the recipes view and the users view as well as the home page. The links should show the total number of users and the total number of recipes.
 
  </details>
 
