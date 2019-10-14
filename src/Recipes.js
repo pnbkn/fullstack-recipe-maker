@@ -8,7 +8,7 @@ const Recipes = ({ recipes }) => {
       <h1>Recipes</h1>
       <ul>
         {
-          recipes.map(recipe => <li key={recipe.id}><Link to={`/recipes/${recipe.id}`}>{recipe.imageURL}<br />Dish: {recipe.name}<br />Region: {recipe.cusine}<br />Directions: {recipe.directions}<br />Health Score: {recipe.healthscore}<br />Ingredients: {recipe.ingredients}<br />Submitted By:</Link></li>)
+          recipes.map(recipe => <li key={recipe.id}><Link to={`/recipes/${recipe.id}`}>{recipe.imageURL}<br />Dish: {recipe.name}<br />Region: {recipe.cusine}<br />Directions: {recipe.directions}<br />Health Score: {recipe.healthscore}<br />Ingredients: {recipe.ingredients}<br />Created By:</Link></li>)
         }
       </ul>
     </div>

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 const Recipe = ({ recipes, users, match }) => {
   const findRecipes = recipes.find(recipe => recipe.id === match.params.id)
-  const { id, name, userId } = { ...findRecipes };
+  const { id, name, cusine, directions, healthscore, ingredients, imageURL, userId } = { ...findRecipes };
   const findUsers = users.find(user => user.id === userId)
   const { username } = { ...findUsers };
 
@@ -13,7 +13,12 @@ const Recipe = ({ recipes, users, match }) => {
     <div>
       <h1>Recipe</h1>
       <ul>
-        <li key={id}>{name}<br />Created by {username}</li>
+        <li key={id}>Dish: {name}<br />
+          Region: {cusine}<br />
+          Directions: {directions}<br />
+          Healthscore: {healthscore}<br />
+          Ingredients: {ingredients}<br />
+          Created by: {username}</li>
       </ul>
     </div >
   )
