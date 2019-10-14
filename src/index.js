@@ -5,13 +5,13 @@ import { connect, Provider } from 'react-redux';
 import Home from './Home';
 import Recipes from './Recipes';
 import Users from './Users';
-
-import store, { fetchUsersThunk } from './store';
+import store, { fetchUsers, fetchRecipes } from './store';
 
 
 class App extends React.Component {
   async componentDidMount() {
-    fetchUsersThunk();
+    fetchUsers();
+    fetchRecipes();
   }
   render() {
     return (

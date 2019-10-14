@@ -20,33 +20,33 @@ Deploying your application is a way to determine whether it will work on an envi
 
 #### Backend
 
-- [ X] Write a `recipes` model with the following information:
-  - [ X] name - not empty or null
-  - [ X] cuisine - ENUM (restricted to only a handful of values)
-  - [ X] directions - extremely large text
-  - [X ] healthScore - decimal between 0 - 10
-  - [ X] ingredients - string
-  - [ X] imageUrl - with a default value
-- [X ] Write a `users` model with the following information:
-  - [ X] username - not empty or null, unique
-  - [ X] email - not empty or null; must be a valid email
-  - [ X] chefScore - defaults to 0, integer
-  - [X ] imageUrl - with a default value
-- [ X] Recipes can be associated with at most one user, users can have many recipes.
-- [ X] write a method which syncs your database and seeds your data.
+- [X] Write a `recipes` model with the following information:
+  - [X] name - not empty or null
+  - [X] cuisine - ENUM (restricted to only a handful of values)
+  - [X] directions - extremely large text
+  - [X] healthScore - decimal between 0 - 10
+  - [X] ingredients - string
+  - [X] imageUrl - with a default value
+- [X] Write a `users` model with the following information:
+  - [X] username - not empty or null, unique
+  - [X] email - not empty or null; must be a valid email
+  - [X] chefScore - defaults to 0, integer
+  - [X] imageUrl - with a default value
+- [X] Recipes can be associated with at most one user, users can have many recipes.
+- [X] write a method which syncs your database and seeds your data.
 
-- [ X] Write a route to serve up all recipes
-- [ X] Write a route to serve up all users
+- [X] Write a route to serve up all recipes
+- [X] Write a route to serve up all users
 
 #### Frontend
-- [ ] Write a recipes sub-reducer to manage recipes in your Redux store
-- [X ] Write a users sub-reducer to manage users in your Redux store
-- [ X] Write a home component which has the text Welcome!
-- [ ] Write a component to display a list of all recipes (include their names, images, and cuisine)
-- [ ] Write a component to display a list of all users (usernames, chefScores, and images)
-- [ X] Display the Home component when the url matches `/`
-- [ ] Display the all-recipes component when the url matches `/recipes`
-- [ ] Display the all-users component when the url matches `/users`
+- [X] Write a recipes sub-reducer to manage recipes in your Redux store
+- [X] Write a users sub-reducer to manage users in your Redux store
+- [X] Write a home component which has the text Welcome!
+- [X] Write a component to display a list of all recipes (include their names, images, and cuisine)
+- [X] Write a component to display a list of all users (usernames, chefScores, and images)
+- [X] Display the Home component when the url matches `/`
+- [X] Display the all-recipes component when the url matches `/recipes`
+- [X] Display the all-users component when the url matches `/users`
 - [ ] Add links to the navbar that can be used to navigate to the recipes view and the users view as well as the home page. The links should show the total number of users and the total number of recipes.
 
  </details>

@@ -10,6 +10,7 @@ const GET_RECIPES = "GET RECIPES";
 // Reducers
 const reducer = combineReducers({
   users: (state = [], action) => {
+    console.log("ACTION IN REDUCER ", action.users)
     if (action.type === GET_USERS) {
       return state = action.users;
     }
@@ -26,25 +27,20 @@ const reducer = combineReducers({
 const store = createStore(reducer, applyMiddleware(thunk));
 
 //ACTION CREATORS
-const fetchUsers = () => {
-  return { type: GET_USERS, users: getUsers }
-}
-const fetchUsersThunk = () => {
-  return async (dispatch) => {
-    const getUsers = await axios.get('/api/users').data;
-    dispatch(fetchUsers(getUsers));
-  }
-}
 
-// const fetchRecipes = () => {
+const fetchUsers = async () => {
+  store.dispatch({
+    type: GET_USERS,
+    users: (await axios.get("/api/users")).data
+  });
+};
 
-// }
-
-// const fetchRecipesThunk = () => {
-
-// }
+const fetchRecipes = async () => {
+  store.dispatch({ type: GET_RECIPES, recipes: (await axios.get("/api/recipes")).data });
+};
 
 export default store;
 export {
-  fetchUsersThunk
+  fetchUsers,
+  fetchRecipes
 }
