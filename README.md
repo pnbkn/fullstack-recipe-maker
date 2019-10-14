@@ -76,7 +76,7 @@ nothing
 
   #### Backend
 
-- [ ] Write a route to serve up a single recipe (based on its id), _including that recipes'_ user
+- [X] Write a route to serve up a single recipe (based on its id), _including that recipes'_ user
 - [ ] Write a route to serve up a single user (based on their id), _including that user's_ recipes
 
 #### Frontend
