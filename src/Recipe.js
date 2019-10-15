@@ -6,10 +6,8 @@ import { Link } from 'react-router-dom';
 const Recipe = ({ recipes, users, match }) => {
   const findRecipes = recipes.find(recipe => recipe.id === match.params.id)
   const recipeObj = { ...findRecipes };
-  const findUsers = users.find(user => user.id === userId)
+  const findUsers = users.find(user => user.id === recipeObj.userId)
   const userObj = { ...findUsers };
-  console.log("RECIPE ", recipeObj.id)
-
 
   return (
     <div>
