@@ -43,5 +43,12 @@ app.get('/users/:id', (req, res, next) => {
     .catch(next)
 })
 
+app.post('/users', (req, res, next) => {
+  console.log("REQ ", req.body);
+  User.create(req.body)
+    .then(_user => res.status(201).send(_user))
+    .catch(next)
+})
+
 
 module.exports = app;

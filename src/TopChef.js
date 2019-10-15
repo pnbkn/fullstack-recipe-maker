@@ -9,13 +9,15 @@ const TopChef = ({ users, recipes }) => {
     }
     return acc;
   }, 0);
-  const topChef = users.find(user => user.chefScore === highestScore)
-  const chef = { ...topChef }
+
   return (
     <div className={"listAll"}>
       <h3>Top Chef</h3>
       <ul>
-        <li className={"lists underline"}><Link to={`/users/${chef.id}`}>{chef.username}</Link></li>
+        {
+          users.map(user => user.chefScore === highestScore ? <li key={user.id} className={"lists underline"}><Link to={`/users/${user.id}`}>{user.username}</Link></li> : '')
+        }
+
       </ul>
     </div>
   )

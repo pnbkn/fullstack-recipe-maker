@@ -1,6 +1,7 @@
 import { combineReducers, createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import axios from 'axios';
+import { async } from 'q';
 
 
 //ACTION TYPES
@@ -19,7 +20,7 @@ const reducer = combineReducers({
       return state = action.users;
     }
     if (action.type === ADD_USERS) {
-
+      return [...state, action.user];
     }
     if (action.type === DELETE_USERS) {
 
@@ -55,8 +56,34 @@ const fetchRecipes = async () => {
   store.dispatch({ type: GET_RECIPES, recipes: (await axios.get("/api/recipes")).data });
 };
 
+const addUser = (user) => {
+  return { type: ADD_USERS, user: user };
+}
+const addUserThunk = (username, email, chefScore, imageURL) => {
+
+  const user = {
+    username: username,
+    email: email,
+    chefScore: chefScore,
+    imageURL: imageURL
+  }
+  return async (dispatch) => {
+    const newUser = await axios.post("/api/users", user);
+    dispatch(addUser(newUser.data));
+  }
+}
+
+const addRecipe = (recipe) => {
+
+}
+const addRecipeThunk = () => {
+
+}
+
 export default store;
 export {
   fetchUsers,
-  fetchRecipes
+  fetchRecipes,
+  addUserThunk,
+  addRecipeThunk
 }

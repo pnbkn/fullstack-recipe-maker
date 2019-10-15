@@ -8,6 +8,7 @@ import Recipes from './Recipes';
 import Recipe from './Recipe';
 import Users from './Users';
 import User from './User';
+import UserForm from './forms/UserForm';
 import store, { fetchUsers, fetchRecipes } from './store';
 
 
