@@ -8,7 +8,7 @@ const User = ({ users, recipes, match }) => {
       <h1>User</h1>
       <ul>
         {
-          users.map(user => user.id === match.params.id ? <li key={user.id} className={"lists"}>{user.imageURL}<br />Username: {user.username} < br /> Email: {user.email}<br />Chef Score: {user.chefScore}</li> : '')
+          users.map(user => user.id === match.params.id ? <li key={user.id} className={"lists"}><img src={`images/${user.imageURL}`} /><br />Username: {user.username} < br /> Email: {user.email}<br />Chef Score: {user.chefScore}</li> : '')
         }
       </ul>
       <ul>

@@ -3,9 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const HealthyRecipes = ({ recipes, users }) => {
-  console.log(recipes)
   const highestRating = recipes.filter(recipe => recipe.healthscore > 7 ? recipe : '')
-  console.log("HIGH SCORE ", highestRating)
   return (
     <ul>
       {
