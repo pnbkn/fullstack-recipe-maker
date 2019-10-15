@@ -6,19 +6,35 @@ import axios from 'axios';
 //ACTION TYPES
 const GET_USERS = "GET_USERS";
 const GET_RECIPES = "GET RECIPES";
+const ADD_USERS = "ADD_USERS";
+const ADD_RECIPES = "ADD_RECIPES";
+const DELETE_USERS = "DELETE_USERS";
+const DELETE_RECIPES = "DELETE_RECIPES";
+
 
 // Reducers
 const reducer = combineReducers({
   users: (state = [], action) => {
-    console.log("ACTION IN REDUCER ", action.users)
     if (action.type === GET_USERS) {
       return state = action.users;
+    }
+    if (action.type === ADD_USERS) {
+
+    }
+    if (action.type === DELETE_USERS) {
+
     }
     return state;
   },
   recipes: (state = [], action) => {
     if (action.type === GET_RECIPES) {
       return state = action.recipes;
+    }
+    if (action.type === ADD_RECIPES) {
+
+    }
+    if (action.type === DELETE_RECIPES) {
+
     }
     return state;
   }

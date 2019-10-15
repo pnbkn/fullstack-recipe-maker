@@ -8,10 +8,10 @@ const Users = ({ users }) => {
       <h1>Chefs</h1>
       <ul>
         {
-          users.map(user => <li key={user.id} className={"lists"}><Link to={`/users/${user.id}`}>{user.imageURL}<br />Username: {user.username}<br />Chef Score: {user.chefScore}<br />Email: {user.email}</Link></li>)
+          users.map(user => <li key={user.id} className={"lists"}>{user.imageURL}<br />Username: <Link to={`/users/${user.id}`} className={"underline"}>{user.username}</Link><br />Chef Score: {user.chefScore}<br />Email:{user.email}</li>)
         }
       </ul>
-    </div>
+    </div >
   )
 }
 

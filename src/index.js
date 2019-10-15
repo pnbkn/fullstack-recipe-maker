@@ -25,7 +25,7 @@ class App extends React.Component {
           <Route exact path="/users" component={Users} />
           <Route exact path="/recipes" component={Recipes} />
           <Route path="/users/:id" component={User} />
-          <Route path="/recipes/:id" component={Recipe} />
+          <Route path="/recipes/:id/users/:userId" component={Recipe} />
         </Switch>
       </HashRouter>
     )
