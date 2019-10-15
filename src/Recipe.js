@@ -10,10 +10,10 @@ const Recipe = ({ recipes, users, match }) => {
   const userObj = { ...findUsers };
 
   return (
-    <div>
+    <div className="listAll">
       <h1>Recipe</h1>
       <ul>
-        <li key={recipeObj.id}>Dish: {recipeObj.name}<br />
+        <li key={recipeObj.id} className="lists">Dish: {recipeObj.name}<br />
           Region: {recipeObj.cusine}<br />
           Directions: {recipeObj.directions}<br />
           Healthscore: {recipeObj.healthscore}<br />

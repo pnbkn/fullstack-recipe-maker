@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 const Home = ({ users, recipes }) => {
   return (
-    <div>
+    <div className={"listAll"}>
       <h1>Welcome!</h1>
     </div>
   );

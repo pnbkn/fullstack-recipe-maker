@@ -3,13 +3,12 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 const Users = ({ users }) => {
-  console.log("USERS ", users)
   return (
-    <div>
-      <h1>Users</h1>
+    <div className="listAll">
+      <h1>Chefs</h1>
       <ul>
         {
-          users.map(user => <li key={user.id}><Link to={`/users/${user.id}`}>{user.imageURL}<br />Username: {user.username}<br />Chef Score: {user.chefScore}<br />Email: {user.email}</Link></li>)
+          users.map(user => <li key={user.id} className={"lists"}><Link to={`/users/${user.id}`}>{user.imageURL}<br />Username: {user.username}<br />Chef Score: {user.chefScore}<br />Email: {user.email}</Link></li>)
         }
       </ul>
     </div>
