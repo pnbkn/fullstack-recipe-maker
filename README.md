@@ -86,14 +86,14 @@ nothing
 - [X] Display the appropriate recipes's info when the url matches `/recipes/:recipeId`
 - [X] Clicking on a recipe from the all-recipes view should navigate to show that recipe in the single-recipe view
 
-- [ ] Write a component to display a single user with the following information:
+- [X] Write a component to display a single user with the following information:
   - [X] The student's username, email, image, and chefScore
-  - [ ] A list of their recipes (or a helpful message if they don't have any)
+  - [X] A list of their recipes (or a helpful message if they don't have any)
 - [X] Display the appropriate user when the url matches `/users/:userId`
 - [X] Clicking on a user from the all-users view should navigate to show that user in the single-user view
 
-- [ ] Clicking on the name of a user in the single-recipe view should navigate to show that user in the single-user view
-- [ ] Clicking on the name of a recipe in the single-user view should navigate to show that recipe in the single-recipe view
+- [X] Clicking on the name of a user in the single-recipe view should navigate to show that user in the single-user view
+- [X] Clicking on the name of a recipe in the single-user view should navigate to show that recipe in the single-recipe view
   </details>
 
   ### Tier 3

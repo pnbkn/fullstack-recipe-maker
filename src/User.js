@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const User = ({ users, recipes, match }) => {
   return (
@@ -12,7 +13,7 @@ const User = ({ users, recipes, match }) => {
       </ul>
       <ul>
         {
-          recipes.map(recipe => recipe.userId === match.params.id ? <li key={recipe.id}>{recipe.name}</li> : "")
+          recipes.map(recipe => recipe.userId === match.params.id ? <li key={recipe.id}><Link to={`/recipes/${recipe.id}`}>{recipe.name}</Link></li> : "")
         }
       </ul>
     </div >

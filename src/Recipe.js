@@ -1,25 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 
 const Recipe = ({ recipes, users, match }) => {
   const findRecipes = recipes.find(recipe => recipe.id === match.params.id)
-  const { id, name, cusine, directions, healthscore, ingredients, imageURL, userId } = { ...findRecipes };
+  const recipeObj = { ...findRecipes };
   const findUsers = users.find(user => user.id === userId)
-  const { username, chefScore } = { ...findUsers };
+  const userObj = { ...findUsers };
+  console.log("RECIPE ", recipeObj.id)
 
 
   return (
     <div>
       <h1>Recipe</h1>
       <ul>
-        <li key={id}>Dish: {name}<br />
-          Region: {cusine}<br />
-          Directions: {directions}<br />
-          Healthscore: {healthscore}<br />
-          Ingredients: {ingredients}<br />
-          Created by: {username}<br />
-          Chef Score: {chefScore}
+        <li key={recipeObj.id}>Dish: {recipeObj.name}<br />
+          Region: {recipeObj.cusine}<br />
+          Directions: {recipeObj.directions}<br />
+          Healthscore: {recipeObj.healthscore}<br />
+          Ingredients: {recipeObj.ingredients}<br />
+          Created by: <Link to={`/users/${userObj.id}`}>{userObj.username}</Link><br />
+          Chef Score: {userObj.chefScore}
         </li>
       </ul>
     </div >
