@@ -24,12 +24,14 @@ class Recipe extends React.Component {
     const rec = { ...recipe[0] }
     const use = { ...user[0] }
     console.log("USER ", user)
-    console.log("RE ", rec)
+    console.log("RE ", rec.imageURL)
     return (
       <div className="listAll">
         <h1>Recipe</h1>
         <ul>
-          <li key={rec.id} className="lists">Dish: {rec.name}<br />
+          <li key={rec.id} className="lists">
+            <img src={`images/${rec.imageURL}`} /><br />
+            Dish: {rec.name}<br />
             Region: {rec.cusine}<br />
             Directions: {rec.directions}<br />
             Healthscore: {rec.healthscore}<br />

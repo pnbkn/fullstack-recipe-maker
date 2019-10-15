@@ -9,7 +9,7 @@ const HealthyRecipes = ({ recipes, users }) => {
   return (
     <ul>
       {
-        highestRating.map(recipe => <li key={recipe.id} className={"lists"}><Link to={`/recipes/${recipe.id}/users/${recipe.userId}`} className={"underline"}>{recipe.name}</Link></li>)
+        highestRating.map(recipe => <li key={recipe.id} className={"lists"}><img src={`images/${recipe.imageURL}`} /><br /><Link to={`/recipes/${recipe.id}/users/${recipe.userId}`} className={"underline"}>{recipe.name}</Link></li>)
       }
     </ul>
   )
