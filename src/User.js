@@ -12,8 +12,9 @@ const User = ({ users, recipes, match }) => {
         }
       </ul>
       <ul>
+        Recipes:
         {
-          recipes.map(recipe => recipe.userId === match.params.id ? <li key={recipe.id}><Link to={`/recipes/${recipe.id}`}>{recipe.name}</Link></li> : "")
+          recipes.map(recipe => recipe.userId === match.params.id ? <li key={recipe.id}><Link to={`/recipes/${recipe.id}`} className={"underline"}> {recipe.name}</Link></li> : "")
         }
       </ul>
     </div >

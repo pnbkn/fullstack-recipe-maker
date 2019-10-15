@@ -18,7 +18,7 @@ const Recipe = ({ recipes, users, match }) => {
           Directions: {recipeObj.directions}<br />
           Healthscore: {recipeObj.healthscore}<br />
           Ingredients: {recipeObj.ingredients}<br />
-          Created by: <Link to={`/users/${userObj.id}`}>{userObj.username}</Link><br />
+          Created by: <Link to={`/users/${userObj.id}`} className={"underline"}>{userObj.username}</Link><br />
           Chef Score: {userObj.chefScore}
         </li>
       </ul>
