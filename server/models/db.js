@@ -68,10 +68,10 @@ const syncAndSeed = async () => {
 
 
   const users = [
-    { username: 'foodie', email: 'foodie@gmail.com', chefScore: '8', imageURL: '#' },
-    { username: 'madforfood', email: 'foodmad@yahoo.com', chefScore: '5', imageURL: '#' },
-    { username: 'cookandeat', email: 'cookandeat@gmail.com', chefScore: '9', imageURL: '#' },
-    { username: 'cookguru', email: 'cookguru@hotmail.com', chefScore: '10', imageURL: '#' }
+    { username: 'foodie', email: 'foodie@gmail.com', chefScore: '8', imageURL: 'chef01.jpg' },
+    { username: 'madforfood', email: 'foodmad@yahoo.com', chefScore: '5', imageURL: 'chef02.jpg' },
+    { username: 'cookandeat', email: 'cookandeat@gmail.com', chefScore: '9', imageURL: 'chef03.jpg' },
+    { username: 'cookguru', email: 'cookguru@hotmail.com', chefScore: '10', imageURL: 'chef04.jpg' }
   ];
   const [foodie, madforfood, cookandeat, cookguru] = await Promise.all(users.map(async user => await User.create(user)));
 
