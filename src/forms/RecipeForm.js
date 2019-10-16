@@ -7,46 +7,66 @@ class RecipeForm extends React.Component {
     super(props);
     this.state = {
       name: '',
-      cusine: '',
+      cuisine: '',
       directions: '',
       healthscore: '',
       ingredients: '',
-      imageURL: ''
+      imageURL: '',
+      userId: ''
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleChange(ev) {
+    console.log(ev.target.name)
+    console.log(ev.target.value)
     this.setState({
       [ev.target.name]: ev.target.value
     })
   }
   handleSubmit(ev) {
+
     ev.preventDefault();
-    const { name, cusine, directions, healthscore, ingredients, imageURL } = this.state;
-    this.props.addRecipe(name, cusine, directions, healthscore, ingredients, imageURL);
+    const { name, cuisine, directions, healthscore, ingredients, imageURL, userId } = this.state;
+    this.props.addRecipe(name, cuisine, directions, healthscore, ingredients, imageURL, userId);
     this.setState({
       name: '',
-      cusine: '',
+      cuisine: '',
       directions: '',
       healthscore: '',
       ingredients: '',
-      imageURL: ''
+      imageURL: '',
+      userId: ''
     })
 
   }
   render() {
+    const cuisines = ['American', 'Chinese', 'Greek', 'Italian', 'Japanese', 'Mexican', 'Thai'];
+
     return (
       <div>
         <h3>Add Recipe</h3>
         <form method="post" onSubmit={this.handleSubmit}>
 
           <input name="name" type="text" value={this.state.name} onChange={this.handleChange} placeholder="Name of Dish" /><br />
-          <input name="cusine" type="text" value={this.state.cusine} onChange={this.handleChange} placeholder="Cusine" /><br />
-          <input name="directions" type="text" value={this.state.directions} onChange={this.handleChange} placeholder="Directions" /><br />
-          <input name="healthscore" type="text" value={this.state.healthscore} onChange={this.handleChange} placeholder="Health Score" /><br />
-          <input name="ingredients" type="text" value={this.state.ingredients} onChange={this.handleChange} placeholder="Ingredients" /><br />
-          <input name="imageURL" type="text" value={this.state.imageURL} onChange={this.handleChange} placeholder="Image URL" /><br />
+          {/* <input name="cusine" type="text" value={this.state.cusine} onChange={this.handleChange} placeholder="Region" /><br /> */}
+
+          <select key={11} name="cuisine" type="text" value={this.state.cuisine} onChange={this.handleChange}>
+            <option>Region</option>
+            {
+              cuisines.map((cuisine, idx) => <option key={idx} value={cuisine}>{cuisine}</option>)
+            }
+          </select><br />
+          <input name="directions" type="text" value={this.state.directions} onChange={this.handleChange} placeholder="Directions" /> <br />
+          <input name="healthscore" type="text" value={this.state.healthscore} onChange={this.handleChange} placeholder="Health Score" /> <br />
+          <input name="ingredients" type="text" value={this.state.ingredients} onChange={this.handleChange} placeholder="Ingredients" /> <br />
+          <input name="imageURL" type="text" value={this.state.imageURL} onChange={this.handleChange} placeholder="Image URL" /> <br />
+          <select key={22} name="userId" type="text" value={this.state.userId} onChange={this.handleChange}>
+            <option>Select a Chef</option>
+            {
+              this.props.users.map(user => <option key={user.id} value={user.id}>{user.username}</option>)
+            }
+          </select><br />
           <button>Add Recipe</button>
         </form>
       </div>
@@ -61,7 +81,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addRecipe: (name, cusine, directions, healthscore, ingredients, imageURL) => dispatch(addRecipeThunk(name, cusine, directions, healthscore, ingredients, imageURL))
+    addRecipe: (name, cuisine, directions, healthscore, ingredients, imageURL, userId) => dispatch(addRecipeThunk(name, cuisine, directions, healthscore, ingredients, imageURL, userId))
   }
 }
 

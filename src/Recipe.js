@@ -32,7 +32,7 @@ class Recipe extends React.Component {
           <li key={rec.id} className="lists">
             <img src={`images/${rec.imageURL}`} /><br />
             Dish: {rec.name}<br />
-            Region: {rec.cusine}<br />
+            Region: {rec.cuisine}<br />
             Directions: {rec.directions}<br />
             Healthscore: {rec.healthscore}<br />
             Ingredients: {rec.ingredients}<br />
@@ -44,29 +44,6 @@ class Recipe extends React.Component {
     )
   }
 }
-// const Recipe = ({ recipes, users, match }) => {
-//   const recipe = recipes.find(recipe => recipe.id === match.params.id ? { ...recipe } : null)
-//   console.log("RECIPE", recipe)
-//   const recipeObj = { ...recipe };
-//   const findUsers = users.find(user => user.id === recipeObj.userId)
-//   const userObj = { ...findUsers };
-
-//   return (
-//     <div className="listAll">
-//       <h1>Recipe</h1>
-//       <ul>
-//         <li key={recipeObj.id} className="lists">Dish: {recipeObj.name}<br />
-//           Region: {recipeObj.cusine}<br />
-//           Directions: {recipeObj.directions}<br />
-//           Healthscore: {recipeObj.healthscore}<br />
-//           Ingredients: {recipeObj.ingredients}<br />
-//           Created by: <Link to={`/ users / ${ userObj.id }`} className={"underline"}>{userObj.username}</Link><br />
-//           Chef Score: {userObj.chefScore}
-//         </li>
-//       </ul>
-//     </div >
-//   )
-// }
 
 const mapStateToProps = (state) => ({
   recipes: state.recipes,

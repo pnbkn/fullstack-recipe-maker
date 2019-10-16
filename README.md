@@ -102,12 +102,12 @@ nothing
 
  #### Backend
 
-- [ ] Write a route to add a new recipe (if given a user, that users chefScore should increase and that user should be associated with the new recipe)
+- [X] Write a route to add a new recipe (if given a user, that users chefScore should increase and that user should be associated with the new recipe)
 - [X] Write a route to add a new user
 
 #### Frontend
 
-- [ ] Write a component to display a form for adding a new recipe that contains inputs for all recipe information (including associated user. Note that cuisine should be a dropdown of options).
+- [X] Write a component to display a form for adding a new recipe that contains inputs for all recipe information (including associated user. Note that cuisine should be a dropdown of options).
 - [X] Display this component EITHER as part of the all-recipes view, or as its own view
 - [X] Submitting the form with a valid name should:
   - [X] Make an AJAX request that causes the new recipe to be persisted in the database
@@ -128,7 +128,7 @@ nothing
 
 #### Backend
 
-- [ ] Write a route to remove a recipe (based on its id, the associated user should get a decrease in their chefScore)
+- [X] Write a route to remove a recipe (based on its id, the associated user should get a decrease in their chefScore)
 - [X] Write a route to remove a user (based on their id)
 
 #### Frontend

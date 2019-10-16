@@ -14,10 +14,11 @@ const User = ({ users, recipes, match }) => {
           users.map(user => user.id === match.params.id ? <li key={user.id} className={"lists"}><img src={`images/${user.imageURL}`} /><br />Username: {user.username} < br /> Email: {user.email}<br />Chef Score: {user.chefScore}</li> : '')
         }
       </ul>
-      <ul>
+      <br />
+      <ul className={"recipes"}>
         Recipes:
         {
-          recipes.map(recipe => recipe.userId === match.params.id ? <li key={recipe.id}><Link to={`/recipes/${recipe.id}/users/${recipe.userId}`} className={"underline"}> {recipe.name}</Link></li> : "")
+          recipes.map(recipe => recipe.userId === match.params.id ? <li key={recipe.id}><Link to={`/recipes/${recipe.id}/users/${recipe.userId}`} className={"underline"}> {recipe.name}</Link> </li> : "")
         }
       </ul>
     </div >

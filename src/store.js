@@ -80,14 +80,15 @@ const addRecipe = (recipe) => {
   return { type: ADD_RECIPES, recipe: recipe };
 }
 
-const addRecipeThunk = (name, cusine, directions, healthscore, ingredients, imageURL) => {
+const addRecipeThunk = (name, cuisine, directions, healthscore, ingredients, imageURL, userId) => {
   const recipe = {
     name: name,
-    cusine: cusine,
+    cuisine: cuisine,
     directions: directions,
     healthscore: healthscore,
     ingredients: ingredients,
-    imageURL: imageURL
+    imageURL: imageURL,
+    userId: userId
   }
   return async (dispatch) => {
     const newRecipe = await axios.post("/api/recipes", recipe);

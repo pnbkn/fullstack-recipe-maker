@@ -18,14 +18,13 @@ app.get('/recipes/:id', (req, res, next) => {
 })
 
 app.get('/recipes/:id', (req, res, next) => {
-  console.log(req.params)
+
   Recipe.findAll({ where: { id: req.params.id } })
     .then(recipes => res.send(recipes))
     .catch(next)
 })
 app.get('/recipes/:userId/users/:id', (req, res, next) => {
-  console.log("REQ ", req.params.id)
-  console.log("REQ ", req.params.userId)
+
   User.findAll({ where: { id: req.params.userId } })
     .then(users => res.send(users))
     .catch(next)
