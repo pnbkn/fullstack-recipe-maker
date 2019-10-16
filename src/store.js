@@ -32,6 +32,7 @@ const reducer = combineReducers({
       return state = action.recipes;
     }
     if (action.type === ADD_RECIPES) {
+      return [...state, action.recipe];
 
     }
     if (action.type === DELETE_RECIPES) {
@@ -59,6 +60,7 @@ const fetchRecipes = async () => {
 const addUser = (user) => {
   return { type: ADD_USERS, user: user };
 }
+
 const addUserThunk = (username, email, chefScore, imageURL) => {
 
   const user = {
@@ -74,10 +76,22 @@ const addUserThunk = (username, email, chefScore, imageURL) => {
 }
 
 const addRecipe = (recipe) => {
-
+  return { type: ADD_RECIPES, recipe: recipe };
 }
-const addRecipeThunk = () => {
 
+const addRecipeThunk = (name, cusine, directions, healthscore, ingredients, imageURL) => {
+  const recipe = {
+    name: name,
+    cusine: cusine,
+    directions: directions,
+    healthscore: healthscore,
+    ingredients: ingredients,
+    imageURL: imageURL
+  }
+  return async (dispatch) => {
+    const newRecipe = await axios.post("/api/recipes", recipe);
+    dispatch(addRecipe(newRecipe.data));
+  }
 }
 
 export default store;

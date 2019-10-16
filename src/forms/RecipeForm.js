@@ -6,23 +6,47 @@ class RecipeForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      users: [],
-      recipes: []
+      name: '',
+      cusine: '',
+      directions: '',
+      healthscore: '',
+      ingredients: '',
+      imageURL: ''
     }
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  handleChange(ev) {
+    this.setState({
+      [ev.target.name]: ev.target.value
+    })
+  }
+  handleSubmit(ev) {
+    ev.preventDefault();
+    const { name, cusine, directions, healthscore, ingredients, imageURL } = this.state;
+    this.props.addRecipe(name, cusine, directions, healthscore, ingredients, imageURL);
+    this.setState({
+      name: '',
+      cusine: '',
+      directions: '',
+      healthscore: '',
+      ingredients: '',
+      imageURL: ''
+    })
+
   }
   render() {
     return (
       <div>
         <h3>Add Recipe</h3>
-        <form>
+        <form method="post" onSubmit={this.handleSubmit}>
 
-          <input type="text" placeholder="Name of Dish" /><br />
-          <input type="text" placeholder="Cusine" /><br />
-          <input type="text" placeholder="Directions" /><br />
-          <input type="text" placeholder="Health Score" /><br />
-          <input type="text" placeholder="Ingredients" /><br />
-          <input type="text" placeholder="Image URL" /><br />
-          <input type="text" placeholder="Created By" /><br />
+          <input name="name" type="text" value={this.state.name} onChange={this.handleChange} placeholder="Name of Dish" /><br />
+          <input name="cusine" type="text" value={this.state.cusine} onChange={this.handleChange} placeholder="Cusine" /><br />
+          <input name="directions" type="text" value={this.state.directions} onChange={this.handleChange} placeholder="Directions" /><br />
+          <input name="healthscore" type="text" value={this.state.healthscore} onChange={this.handleChange} placeholder="Health Score" /><br />
+          <input name="ingredients" type="text" value={this.state.ingredients} onChange={this.handleChange} placeholder="Ingredients" /><br />
+          <input name="imageURL" type="text" value={this.state.imageURL} onChange={this.handleChange} placeholder="Image URL" /><br />
           <button>Add Recipe</button>
         </form>
       </div>
@@ -37,7 +61,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addRecipe: () => dispatch(addRecipeThunk())
+    addRecipe: (name, cusine, directions, healthscore, ingredients, imageURL) => dispatch(addRecipeThunk(name, cusine, directions, healthscore, ingredients, imageURL))
   }
 }
 

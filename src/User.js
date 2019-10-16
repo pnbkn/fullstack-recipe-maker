@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const User = ({ users, recipes, match }) => {
   const chef = users.find(user => user.id === match.params.id ? user.username : "")
   const chefName = { ...chef }
-  console.log("NAME ", chefName.username)
+
   return (
     <div className="listAll">
       <h1>Chef {chefName.username}</h1>

@@ -44,10 +44,14 @@ app.get('/users/:id', (req, res, next) => {
 })
 
 app.post('/users', (req, res, next) => {
-  console.log("REQ ", req.body);
   User.create(req.body)
     .then(_user => res.status(201).send(_user))
     .catch(next)
+})
+
+app.post('/recipes', (req, res, next) => {
+  Recipe.create(req.body)
+    .then(_recipe => res.status(201).send(_recipe))
 })
 
 
