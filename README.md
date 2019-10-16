@@ -103,21 +103,21 @@ nothing
  #### Backend
 
 - [ ] Write a route to add a new recipe (if given a user, that users chefScore should increase and that user should be associated with the new recipe)
-- [ ] Write a route to add a new user
+- [X] Write a route to add a new user
 
 #### Frontend
 
 - [ ] Write a component to display a form for adding a new recipe that contains inputs for all recipe information (including associated user. Note that cuisine should be a dropdown of options).
-- [ ] Display this component EITHER as part of the all-recipes view, or as its own view
-- [ ] Submitting the form with a valid name should:
-  - [ ] Make an AJAX request that causes the new recipe to be persisted in the database
-  - [ ] Add the new recipe to the list of recipes without needing to refresh the page
+- [X] Display this component EITHER as part of the all-recipes view, or as its own view
+- [X] Submitting the form with a valid name should:
+  - [X] Make an AJAX request that causes the new recipe to be persisted in the database
+  - [X] Add the new recipe to the list of recipes without needing to refresh the page
 
-- [ ] Write a component to display a form for adding a new user that contains inputs for _at least_ username and email
-- [ ] Display this component EITHER as part of the all-users view, or as its own view
-- [ ] Submitting the form with a valid username should:
-  - [ ] Make an AJAX request that causes the new user to be persisted in the database
-  - [ ] Add the new user to the list of users without needing to refresh the page
+- [X] Write a component to display a form for adding a new user that contains inputs for _at least_ username and email
+- [X] Display this component EITHER as part of the all-users view, or as its own view
+- [X] Submitting the form with a valid username should:
+  - [X] Make an AJAX request that causes the new user to be persisted in the database
+  - [X] Add the new user to the list of users without needing to refresh the page
 
 
  </details>
@@ -129,19 +129,19 @@ nothing
 #### Backend
 
 - [ ] Write a route to remove a recipe (based on its id, the associated user should get a decrease in their chefScore)
-- [ ] Write a route to remove a user (based on their id)
+- [X] Write a route to remove a user (based on their id)
 
 #### Frontend
 
-- [ ] In the all-recipes view, include an `X` button next to each recipe
-- [ ] Clicking the `X` button should:
-  - [ ] Make an AJAX request that causes that recipe to be removed from database
-  - [ ] Remove the recipe from the list of recipes without needing to refresh the page
+- [X] In the all-recipes view, include an `X` button next to each recipe
+- [X] Clicking the `X` button should:
+  - [X] Make an AJAX request that causes that recipe to be removed from database
+  - [X] Remove the recipe from the list of recipes without needing to refresh the page
 
-- [ ] In the all-users view, include an `X` button next to each user
-- [ ] Clicking the `X` button should:
-  - [ ] Make an AJAX request that causes that user to be removed from database
-  - [ ] Remove the user from the list of users without needing to refresh the page
+- [X] In the all-users view, include an `X` button next to each user
+- [X] Clicking the `X` button should:
+  - [X] Make an AJAX request that causes that user to be removed from database
+  - [X] Remove the user from the list of users without needing to refresh the page
 
 </details>
 

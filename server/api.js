@@ -54,5 +54,19 @@ app.post('/recipes', (req, res, next) => {
     .then(_recipe => res.status(201).send(_recipe))
 })
 
+app.delete('/users/:id', (req, res, next) => {
+  User.findByPk(req.params.id)
+    .then(_user => _user.destroy())
+    .then(() => res.sendStatus(204))
+    .catch(next)
+})
+
+app.delete('/recipes/:userId/users/:id', (req, res, next) => {
+  Recipe.findByPk(req.params.userId)
+    .then(_recipe => _recipe.destroy())
+    .then(() => res.sendStatus(204))
+    .catch(next)
+})
+
 
 module.exports = app;

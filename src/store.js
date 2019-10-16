@@ -1,4 +1,4 @@
-import { combineReducers, createStore, applyMiddleware } from 'redux';
+import { combineReducers, createStore, applyMiddleware, bindActionCreators } from 'redux';
 import thunk from 'redux-thunk';
 import axios from 'axios';
 import { async } from 'q';
@@ -23,7 +23,7 @@ const reducer = combineReducers({
       return [...state, action.user];
     }
     if (action.type === DELETE_USERS) {
-
+      return state.filter(user => user.id !== action.user.id)
     }
     return state;
   },
@@ -36,6 +36,7 @@ const reducer = combineReducers({
 
     }
     if (action.type === DELETE_RECIPES) {
+      return state.filter(recipe => recipe.id !== action.recipe.id)
 
     }
     return state;
@@ -94,10 +95,33 @@ const addRecipeThunk = (name, cusine, directions, healthscore, ingredients, imag
   }
 }
 
+const deleteUser = (user) => {
+  return { type: DELETE_USERS, user: user }
+}
+const deleteUserThunk = (user) => {
+  return async (dispatch) => {
+    await axios.delete(`/api/users/${user.id}`);
+    dispatch(deleteUser(user));
+  }
+}
+
+const deleteRecipe = (recipe) => {
+  return { type: DELETE_RECIPES, recipe: recipe }
+}
+const deleteRecipeThunk = (recipe) => {
+  console.log("DELETE THUNK ", recipe)
+  return async (dispatch) => {
+    await axios.delete(`/api/recipes/${recipe.id}/users/${recipe.userId}`);
+    dispatch(deleteRecipe(recipe))
+  }
+}
+
 export default store;
 export {
   fetchUsers,
   fetchRecipes,
   addUserThunk,
-  addRecipeThunk
+  addRecipeThunk,
+  deleteUserThunk,
+  deleteRecipeThunk
 }
