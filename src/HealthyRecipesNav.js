@@ -12,7 +12,7 @@ const HealthyRecipesNav = ({ recipes, users }) => {
   const userLink = { ...user[0] }
   console.log("USER ", userLink)
   return (
-    <li><Link to={`/recipes/${score.id}/users/${userLink.id}`}>Healthy Recipes ({highestScore.length})</Link></li>
+    <li><Link to={`/recipes/healthiest`}>Healthy Recipes ({highestScore.length})</Link></li>
   )
 }
 

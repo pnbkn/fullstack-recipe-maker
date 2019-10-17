@@ -9,8 +9,9 @@ const GET_USERS = "GET_USERS";
 const GET_RECIPES = "GET RECIPES";
 const ADD_USERS = "ADD_USERS";
 const ADD_RECIPES = "ADD_RECIPES";
-const DELETE_USERS = "DELETE_USERS";
-const DELETE_RECIPES = "DELETE_RECIPES";
+const DELETE_USER = "DELETE_USERS";
+const DELETE_RECIPE = "DELETE_RECIPES";
+const UPDATE_USER = "UPDATE_USER";
 
 
 // Reducers
@@ -22,7 +23,12 @@ const reducer = combineReducers({
     if (action.type === ADD_USERS) {
       return [...state, action.user];
     }
-    if (action.type === DELETE_USERS) {
+    if (action.type === UPDATE_USER) {
+      console.log("ACTION SCORE ", action.chefScore)
+      console.log("ACTION ID ", action.userId)
+      return state.map(user => action.userId === user.Id ? { ...user, chefScore: action.chefScore } : user);
+    }
+    if (action.type === DELETE_USER) {
       return state.filter(user => user.id !== action.user.id)
     }
     return state;
@@ -35,7 +41,7 @@ const reducer = combineReducers({
       return [...state, action.recipe];
 
     }
-    if (action.type === DELETE_RECIPES) {
+    if (action.type === DELETE_RECIPE) {
       return state.filter(recipe => recipe.id !== action.recipe.id)
 
     }
@@ -76,11 +82,18 @@ const addUserThunk = (username, email, chefScore, imageURL) => {
   }
 }
 
+const updateUser = (user) => {
+  console.log("UPDATE USER", user)
+  return { type: UPDATE_USER, userId: user.userId, chefScore: user.chefScore };
+}
+
 const addRecipe = (recipe) => {
   return { type: ADD_RECIPES, recipe: recipe };
 }
 
-const addRecipeThunk = (name, cuisine, directions, healthscore, ingredients, imageURL, userId) => {
+const addRecipeThunk = (name, cuisine, directions, healthscore, ingredients, imageURL, userId, user) => {
+  console.log("THUNK CHEF SCORE ", user)
+  const newScore = user.chefScore + 1;
   const recipe = {
     name: name,
     cuisine: cuisine,
@@ -92,12 +105,13 @@ const addRecipeThunk = (name, cuisine, directions, healthscore, ingredients, ima
   }
   return async (dispatch) => {
     const newRecipe = await axios.post("/api/recipes", recipe);
-    dispatch(addRecipe(newRecipe.data));
+    const updateUserScore = await axios.put(`/api/users/${user.Id}`, { chefScore: newScore }).data;
+    dispatch(addRecipe(newRecipe.data), updateUser(updateUserScore));
   }
 }
 
 const deleteUser = (user) => {
-  return { type: DELETE_USERS, user: user }
+  return { type: DELETE_USER, user: user }
 }
 const deleteUserThunk = (user) => {
   return async (dispatch) => {
@@ -107,7 +121,7 @@ const deleteUserThunk = (user) => {
 }
 
 const deleteRecipe = (recipe) => {
-  return { type: DELETE_RECIPES, recipe: recipe }
+  return { type: DELETE_RECIPE, recipe: recipe }
 }
 const deleteRecipeThunk = (recipe) => {
   console.log("DELETE THUNK ", recipe)

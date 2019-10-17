@@ -17,9 +17,9 @@ app.get('/recipes/:id', (req, res, next) => {
     .catch(next)
 })
 
-app.get('/recipes/:id', (req, res, next) => {
+app.get('/recipes/healthiest', (req, res, next) => {
 
-  Recipe.findAll({ where: { id: req.params.id } })
+  Recipe.findAll({ where: { healthscore: healthscore > 7 } })
     .then(recipes => res.send(recipes))
     .catch(next)
 })
@@ -67,5 +67,11 @@ app.delete('/recipes/:userId/users/:id', (req, res, next) => {
     .catch(next)
 })
 
+app.put('/users/:id', (req, res, next) => {
+  User.findByPk(req.params.id)
+    .then(_user => _user.update({ chefScore: req.body.chefScore }))
+    .then(() => res.sendStatus(201))
+    .catch(next)
+})
 
 module.exports = app;

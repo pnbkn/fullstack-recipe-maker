@@ -6,6 +6,7 @@ import Nav from './Nav';
 import Home from './Home';
 import Recipes from './Recipes';
 import Recipe from './Recipe';
+import HealthiestRecipes from './HealthiestRecipes';
 import Users from './Users';
 import User from './User';
 import UserForm from './forms/UserForm';
@@ -27,6 +28,7 @@ class App extends React.Component {
           <Route exact path="/recipes" component={Recipes} />
           <Route path="/users/:id" component={User} />
           <Route path="/recipes/:id/users/:userId" component={Recipe} />
+          <Route path="/recipes/healthiest" component={HealthiestRecipes} />
         </Switch>
       </HashRouter>
     )

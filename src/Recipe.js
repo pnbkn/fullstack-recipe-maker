@@ -16,7 +16,6 @@ class Recipe extends React.Component {
   async componentDidMount() {
     const recipe = (await axios.get(`/api/recipes/${this.props.match.params.id}`)).data;
     const user = (await axios.get(`/api/users/${this.props.match.params.userId}`)).data;
-    //console.log((await axios.get(`/ api / recipes / ${ this.props.match.params.id } / users / ${ this.props.match.params.userId }`)))
     this.setState({ recipe, user })
   }
   render() {

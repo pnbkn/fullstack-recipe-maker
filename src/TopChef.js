@@ -15,7 +15,7 @@ const TopChef = ({ users, recipes }) => {
       <h3>Top Chef</h3>
       <ul>
         {
-          users.map(user => user.chefScore === highestScore ? <li key={user.id} className={"lists underline"}><Link to={`/users/${user.id}`}>{user.username}</Link></li> : '')
+          users.map(user => user.chefScore === highestScore ? <li key={user.id} className={"lists underline"}><Link to={`/users/${user.id}`}><img src={`images/${user.imageURL}`} /><br />{user.username}</Link></li> : '')
         }
 
       </ul>

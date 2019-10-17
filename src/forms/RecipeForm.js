@@ -18,6 +18,7 @@ class RecipeForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleChange(ev) {
+    console.log("PROPS ", this.props.users)
     console.log(ev.target.name)
     console.log(ev.target.value)
     this.setState({
@@ -25,10 +26,11 @@ class RecipeForm extends React.Component {
     })
   }
   handleSubmit(ev) {
-
     ev.preventDefault();
     const { name, cuisine, directions, healthscore, ingredients, imageURL, userId } = this.state;
-    this.props.addRecipe(name, cuisine, directions, healthscore, ingredients, imageURL, userId);
+    const findUser = this.props.users.find(user => userId === user.id ? user : '');
+
+    this.props.addRecipe(name, cuisine, directions, healthscore, ingredients, imageURL, userId, findUser);
     this.setState({
       name: '',
       cuisine: '',
@@ -49,7 +51,6 @@ class RecipeForm extends React.Component {
         <form method="post" onSubmit={this.handleSubmit}>
 
           <input name="name" type="text" value={this.state.name} onChange={this.handleChange} placeholder="Name of Dish" /><br />
-          {/* <input name="cusine" type="text" value={this.state.cusine} onChange={this.handleChange} placeholder="Region" /><br /> */}
 
           <select key={11} name="cuisine" type="text" value={this.state.cuisine} onChange={this.handleChange}>
             <option>Region</option>
@@ -81,7 +82,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addRecipe: (name, cuisine, directions, healthscore, ingredients, imageURL, userId) => dispatch(addRecipeThunk(name, cuisine, directions, healthscore, ingredients, imageURL, userId))
+    addRecipe: (name, cuisine, directions, healthscore, ingredients, imageURL, userId, chefScore) => dispatch(addRecipeThunk(name, cuisine, directions, healthscore, ingredients, imageURL, userId, chefScore)),
   }
 }
 

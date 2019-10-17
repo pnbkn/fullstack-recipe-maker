@@ -29,23 +29,6 @@ class Recipes extends React.Component {
   }
 }
 
-// const Recipes = ({ recipes, users }) => {
-
-//   return (
-//     <div className="listAll">
-//       <h1>Recipes</h1>
-//       <ul>
-//         {
-//           recipes.map(recipe => <li key={recipe.id} className={"lists"}> <img src={`images/${recipe.imageURL}`} /><br />Dish: <Link to={`/recipes/${recipe.id}/users/${recipe.userId}`} className={"underline"}>{recipe.name}</Link><br />Region: {recipe.cusine}<br />Directions: {recipe.directions}<br />Health Score: {recipe.healthscore}<br />Ingredients: {recipe.ingredients}<br />Created By: {users.map(user => user.id === recipe.userId ? <Link key={user.id} to={`/users/${user.id}`} className={"underline"}>{user.username}</Link> : '')}<br /><button onClick={(ev) => this.props.deleteRecipe(recipe)}>Delete</button></li>)
-//         }
-//       </ul>
-//       <br />
-//       <RecipeForm />
-//       <br /><br /><br /> <br /> <br /> <br /> <br />
-//     </div>
-//   )
-// }
-
 const mapStateToProps = (state) => ({ recipes: state.recipes, users: state.users });
 const mapDispatchToProps = (dispatch) => {
   return {
