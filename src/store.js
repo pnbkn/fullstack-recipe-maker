@@ -24,9 +24,9 @@ const reducer = combineReducers({
       return [...state, action.user];
     }
     if (action.type === UPDATE_USER) {
-      console.log("ACTION SCORE ", action.chefScore)
-      console.log("ACTION ID ", action.userId)
-      return state.map(user => action.userId === user.Id ? { ...user, chefScore: action.chefScore } : user);
+      console.log("ACTION SCORE ", action)
+      console.log("ACTION ID ", action.id)
+      return state.map(user => action.id === user.id ? { ...user, chefScore: action.chefScore } : user);
     }
     if (action.type === DELETE_USER) {
       return state.filter(user => user.id !== action.user.id)
@@ -84,16 +84,16 @@ const addUserThunk = (username, email, chefScore, imageURL) => {
 
 const updateUser = (user) => {
   console.log("UPDATE USER", user)
-  return { type: UPDATE_USER, userId: user.userId, chefScore: user.chefScore };
+  return { type: UPDATE_USER, id: user.id, chefScore: user.chefScore };
 }
 
 const addRecipe = (recipe) => {
   return { type: ADD_RECIPES, recipe: recipe };
 }
 
-const addRecipeThunk = (name, cuisine, directions, healthscore, ingredients, imageURL, userId, user) => {
-  console.log("THUNK CHEF SCORE ", user)
-  const newScore = user.chefScore + 1;
+const addRecipeThunk = (name, cuisine, directions, healthscore, ingredients, imageURL, userId, oldUser) => {
+
+  //const newScore = user.chefScore + 1;
   const recipe = {
     name: name,
     cuisine: cuisine,
@@ -103,10 +103,19 @@ const addRecipeThunk = (name, cuisine, directions, healthscore, ingredients, ima
     imageURL: imageURL,
     userId: userId
   }
+  const user = {
+    id: oldUser.id,
+    username: oldUser.name,
+    email: oldUser.email,
+    chefScore: oldUser.chefScore + 1,
+    imageURL: oldUser.imageURL
+  }
+  console.log("THUNK CHEF SCORE ", user)
   return async (dispatch) => {
     const newRecipe = await axios.post("/api/recipes", recipe);
-    const updateUserScore = await axios.put(`/api/users/${user.Id}`, { chefScore: newScore }).data;
-    dispatch(addRecipe(newRecipe.data), updateUser(updateUserScore));
+    await axios.put(`/api/users/${user.id}`, { chefScore: user.chefScore }).data;
+    dispatch(addRecipe(newRecipe.data))
+    dispatch(updateUser(user));
   }
 }
 
