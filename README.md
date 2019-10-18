@@ -1,3 +1,6 @@
+# Deployed on Heroku
+https://fullstack-recipe-maker.herokuapp.com
+
 # recipe-maker
 with React, Redux, Express, and Sequelize!
 
