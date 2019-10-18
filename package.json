@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start:dev": "DATABASE_URL=postgres://localhost/fullstack_recipe_maker_db nodemon server/index.js --ignore dist/ --ignore src/ --ignore images/ & npm run webpack",
-    "start": "node server.js",
+    "start": "node server/index.js",
     "webpack": "webpack --watch --mode=development",
     "postinstall": "npm run webpack"
   },
