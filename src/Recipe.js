@@ -10,8 +10,6 @@ class Recipe extends React.Component {
       recipe: [],
       user: []
     }
-    console.log(props)
-    console.log(props.match.params.userId)
   }
   async componentDidMount() {
     const recipe = (await axios.get(`/api/recipes/${this.props.match.params.id}`)).data;
@@ -22,8 +20,6 @@ class Recipe extends React.Component {
     const { recipe, user } = this.state;
     const rec = { ...recipe[0] }
     const use = { ...user[0] }
-    console.log("USER ", user)
-    console.log("RE ", rec.imageURL)
     return (
       <div className="listAll">
         <h1>Recipe</h1>

@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 const HealthyRecipes = ({ recipes, users }) => {
   const highestRating = recipes.filter(recipe => recipe.healthscore > 7 ? recipe : '')
-  console.log("HIGHEST RATING ", highestRating)
   return (
     <ul>
       {

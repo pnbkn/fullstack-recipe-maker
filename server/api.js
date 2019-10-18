@@ -68,8 +68,6 @@ app.delete('/recipes/:userId/users/:id', (req, res, next) => {
 })
 
 app.put('/users/:id', (req, res, next) => {
-  console.log("REQ ", req.params.id)
-  console.log("REQ ", req.body)
   User.findByPk(req.params.id)
     .then(_user => _user.update({ chefScore: req.body.chefScore }))
     .then(() => res.sendStatus(201))

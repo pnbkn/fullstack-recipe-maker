@@ -24,8 +24,6 @@ const reducer = combineReducers({
       return [...state, action.user];
     }
     if (action.type === UPDATE_USER) {
-      console.log("ACTION SCORE ", action)
-      console.log("ACTION ID ", action.id)
       return state.map(user => action.id === user.id ? { ...user, chefScore: action.chefScore } : user);
     }
     if (action.type === DELETE_USER) {
@@ -83,7 +81,6 @@ const addUserThunk = (username, email, chefScore, imageURL) => {
 }
 
 const updateUser = (user) => {
-  console.log("UPDATE USER", user)
   return { type: UPDATE_USER, id: user.id, chefScore: user.chefScore };
 }
 
@@ -110,7 +107,6 @@ const addRecipeThunk = (name, cuisine, directions, healthscore, ingredients, ima
     chefScore: oldUser.chefScore + 1,
     imageURL: oldUser.imageURL
   }
-  console.log("THUNK CHEF SCORE ", user)
   return async (dispatch) => {
     const newRecipe = await axios.post("/api/recipes", recipe);
     await axios.put(`/api/users/${user.id}`, { chefScore: user.chefScore }).data;
@@ -133,8 +129,6 @@ const deleteRecipe = (recipe) => {
   return { type: DELETE_RECIPE, recipe: recipe }
 }
 const deleteRecipeThunk = (recipe, oldUser) => {
-  console.log("DELETE THUNK Recipe ", recipe)
-  console.log("DELETE THUNK User ", oldUser)
   const user = {
     id: oldUser.id,
     username: oldUser.name,

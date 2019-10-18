@@ -18,9 +18,6 @@ class RecipeForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleChange(ev) {
-    console.log("PROPS ", this.props.users)
-    console.log(ev.target.name)
-    console.log(ev.target.value)
     this.setState({
       [ev.target.name]: ev.target.value
     })

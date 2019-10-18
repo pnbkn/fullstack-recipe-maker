@@ -20,7 +20,6 @@ class UserForm extends React.Component {
   }
   handleSubmit(ev) {
     ev.preventDefault();
-    console.log("SUBMIT STATE ", this.state)
     const { username, email, chefScore, imageURL } = this.state;
     this.props.addUser(username, email, chefScore, imageURL);
     this.setState({
