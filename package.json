@@ -1,13 +1,13 @@
 {
   "name": "recipe-maker",
   "version": "1.0.0",
-  "description": "More practice with React, Redux, Express, and Sequelize!",
+  "description": "FullStack Recipe Maker",
   "main": "index.js",
   "scripts": {
-    "start:dev": "DATABASE_URL=postgres://localhost/fullstack_recipe_maker_db nodemon server/index.js --ignore dist/ --ignore src/ --ignore images/ & npm run webpack",
-    "start": "node server/index.js",
+    "postinstall": "npm run webpack",
     "webpack": "webpack --watch --mode=development",
-    "postinstall": "npm run webpack"
+    "start:dev": "DATABASE_URL=postgres://localhost/fullstack_recipe_maker_db nodemon server/index.js --ignore dist/ --ignore src/ --ignore images/ & npm run webpack",
+    "start": "node server/index.js"
   },
   "babel": {
     "presets": [
