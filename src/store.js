@@ -132,11 +132,21 @@ const deleteUserThunk = (user) => {
 const deleteRecipe = (recipe) => {
   return { type: DELETE_RECIPE, recipe: recipe }
 }
-const deleteRecipeThunk = (recipe) => {
-  console.log("DELETE THUNK ", recipe)
+const deleteRecipeThunk = (recipe, oldUser) => {
+  console.log("DELETE THUNK Recipe ", recipe)
+  console.log("DELETE THUNK User ", oldUser)
+  const user = {
+    id: oldUser.id,
+    username: oldUser.name,
+    email: oldUser.email,
+    chefScore: oldUser.chefScore - 1,
+    imageURL: oldUser.imageURL
+  }
   return async (dispatch) => {
     await axios.delete(`/api/recipes/${recipe.id}/users/${recipe.userId}`);
+    await axios.put(`/api/users/${user.id}`, { chefScore: user.chefScore }).data;
     dispatch(deleteRecipe(recipe))
+    dispatch(updateUser(user));
   }
 }
 
