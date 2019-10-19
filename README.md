@@ -153,7 +153,7 @@ nothing
 <details>
 
 - [ ] If a user attempts to add a new recipe or user without a required field, a helpful message should be displayed
-- [ ] Show a special symbol/message or change the color of the user whose chefScore is the highest. You could even have tiers of chef levels (bronze, silver, gold, etc.)
+- [X] Show a special symbol/message or change the color of the user whose chefScore is the highest. You could even have tiers of chef levels (bronze, silver, gold, etc.)
 - [ ] Add a filter for cuisine type on the all recipes page
 - [ ] If a user attempts to access a page that doesn't exist (ex. `/kittens`), a helpful "not found" message should be displayed
 - [ ] If a user attempts to view a recipe or user that doesn't exist, a helpful message should be displayed

@@ -35,10 +35,10 @@ class UserForm extends React.Component {
       <div>
         <h3>Add Chef</h3>
         <form method="post" onSubmit={this.handleSubmit}>
-          <input name="username" type="text" value={this.state.username} onChange={this.handleChange} placeholder="Username" /><br />
-          <input name="email" type="text" value={this.state.email} onChange={this.handleChange} placeholder="Email" /><br />
-          <input name="chefScore" type="text" value={this.state.chefScore} onChange={this.handleChange} placeholder="Chef Score" /><br />
-          <input name="imageURL" type="text" value={this.state.imageURL} onChange={this.handleChange} placeholder="Image URL" /><br />
+          <input name="username" type="text" value={this.state.username} onChange={this.handleChange} placeholder="Username" required /><br />
+          <input name="email" type="text" value={this.state.email} onChange={this.handleChange} placeholder="Email" required /><br />
+          <input name="chefScore" type="text" value={this.state.chefScore} onChange={this.handleChange} placeholder="Chef Score" required /><br />
+          <input name="imageURL" type="text" value={this.state.imageURL} onChange={this.handleChange} placeholder="Image URL" required /><br />
           <button>Add Chef</button>
         </form>
       </div>

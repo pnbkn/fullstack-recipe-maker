@@ -37,7 +37,6 @@ class RecipeForm extends React.Component {
       imageURL: '',
       userId: ''
     })
-
   }
   render() {
     const cuisines = ['American', 'Chinese', 'Greek', 'Italian', 'Japanese', 'Mexican', 'Thai'];
@@ -47,19 +46,19 @@ class RecipeForm extends React.Component {
         <h3>Add Recipe</h3>
         <form method="post" onSubmit={this.handleSubmit}>
 
-          <input name="name" type="text" value={this.state.name} onChange={this.handleChange} placeholder="Name of Dish" /><br />
+          <input name="name" type="text" value={this.state.name} onChange={this.handleChange} placeholder="Name of Dish" required /><br />
 
-          <select key={11} name="cuisine" type="text" value={this.state.cuisine} onChange={this.handleChange}>
+          <select key={11} name="cuisine" type="text" value={this.state.cuisine} onChange={this.handleChange} required>
             <option>Region</option>
             {
               cuisines.map((cuisine, idx) => <option key={idx} value={cuisine}>{cuisine}</option>)
             }
           </select><br />
-          <input name="directions" type="text" value={this.state.directions} onChange={this.handleChange} placeholder="Directions" /> <br />
-          <input name="healthscore" type="text" value={this.state.healthscore} onChange={this.handleChange} placeholder="Health Score" /> <br />
-          <input name="ingredients" type="text" value={this.state.ingredients} onChange={this.handleChange} placeholder="Ingredients" /> <br />
-          <input name="imageURL" type="text" value={this.state.imageURL} onChange={this.handleChange} placeholder="Image URL" /> <br />
-          <select key={22} name="userId" type="text" value={this.state.userId} onChange={this.handleChange}>
+          <input name="directions" type="text" value={this.state.directions} onChange={this.handleChange} placeholder="Directions" required /> <br />
+          <input name="healthscore" type="text" value={this.state.healthscore} onChange={this.handleChange} placeholder="Health Score" required /> <br />
+          <input name="ingredients" type="text" value={this.state.ingredients} onChange={this.handleChange} placeholder="Ingredients" required /> <br />
+          <input name="imageURL" type="text" value={this.state.imageURL} onChange={this.handleChange} placeholder="Image URL" required /> <br />
+          <select key={22} name="userId" type="text" value={this.state.userId} onChange={this.handleChange} required>
             <option>Select a Chef</option>
             {
               this.props.users.map(user => <option key={user.id} value={user.id}>{user.username}</option>)
