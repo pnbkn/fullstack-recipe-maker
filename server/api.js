@@ -69,9 +69,12 @@ app.delete('/recipes/:userId/users/:id', (req, res, next) => {
 
 app.put('/users/:id', (req, res, next) => {
   User.findByPk(req.params.id)
-    .then(_user => _user.update({ chefScore: req.body.chefScore }))
+    .then(_user => _user.update({ username: req.body.username, email: req.body.email, chefScore: req.body.chefScore, imageURL: req.body.imageURL }))
     .then(() => res.sendStatus(201))
     .catch(next)
+})
+app.use((req, res, next) => {
+  res.status(404).send(Error)
 })
 
 module.exports = app;

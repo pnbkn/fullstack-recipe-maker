@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import UpdateUserForm from './forms/UpdateUserForm';
+
 
 const User = ({ users, recipes, match }) => {
   const chef = users.find(user => user.id === match.params.id ? user.username : "")
@@ -8,6 +10,7 @@ const User = ({ users, recipes, match }) => {
 
   return (
     <div className="listAll">
+
       <h1>Chef {chefName.username}</h1>
       <ul>
         {
@@ -21,6 +24,7 @@ const User = ({ users, recipes, match }) => {
           recipes.map(recipe => recipe.userId === match.params.id ? <li key={recipe.id}><Link to={`/recipes/${recipe.id}/users/${recipe.userId}`} className={"underline"}> {recipe.name}</Link> </li> : "")
         }
       </ul>
+      <UpdateUserForm match={match.params.id} username={chefName.username} email={chefName.email} chefScore={chefName.chefScore} imageURL={chefName.imageURL} user={users.find(user => user.id === match.params.id)} />
     </div >
   )
 }

@@ -11,7 +11,8 @@ const ADD_USERS = "ADD_USERS";
 const ADD_RECIPES = "ADD_RECIPES";
 const DELETE_USER = "DELETE_USERS";
 const DELETE_RECIPE = "DELETE_RECIPES";
-const UPDATE_USER = "UPDATE_USER";
+const UPDATE_USER_SCORE = "UPDATE_USER";
+const UPDATE_USER_ALL = "UPDATE_USER_ALL";
 
 
 // Reducers
@@ -23,8 +24,11 @@ const reducer = combineReducers({
     if (action.type === ADD_USERS) {
       return [...state, action.user];
     }
-    if (action.type === UPDATE_USER) {
+    if (action.type === UPDATE_USER_SCORE) {
       return state.map(user => action.id === user.id ? { ...user, chefScore: action.chefScore } : user);
+    }
+    if (action.type === UPDATE_USER_ALL) {
+      return state.map(user => action.id === user.id ? { ...user, username: action.username, email: action.email, chefScore: action.chefScore, imageURL: action.imageURL } : user);
     }
     if (action.type === DELETE_USER) {
       return state.filter(user => user.id !== action.user.id)
@@ -80,8 +84,8 @@ const addUserThunk = (username, email, chefScore, imageURL) => {
   }
 }
 
-const updateUser = (user) => {
-  return { type: UPDATE_USER, id: user.id, chefScore: user.chefScore };
+const updateUserScore = (user) => {
+  return { type: UPDATE_USER_SCORE, id: user.id, chefScore: user.chefScore };
 }
 
 const addRecipe = (recipe) => {
@@ -111,7 +115,7 @@ const addRecipeThunk = (name, cuisine, directions, healthscore, ingredients, ima
     const newRecipe = await axios.post("/api/recipes", recipe);
     await axios.put(`/api/users/${user.id}`, { chefScore: user.chefScore }).data;
     dispatch(addRecipe(newRecipe.data))
-    dispatch(updateUser(user));
+    dispatch(updateUserScore(user));
   }
 }
 
@@ -140,8 +144,27 @@ const deleteRecipeThunk = (recipe, oldUser) => {
     await axios.delete(`/api/recipes/${recipe.id}/users/${recipe.userId}`);
     await axios.put(`/api/users/${user.id}`, { chefScore: user.chefScore }).data;
     dispatch(deleteRecipe(recipe))
-    dispatch(updateUser(user));
+    dispatch(updateUserScore(user));
   }
+}
+
+const updateUserAll = (user) => {
+  return { type: UPDATE_USER_ALL, id: user.id, username: user.username, email: user.email, chefScore: user.chefScore, imageURL: user.imageURL };
+}
+
+const updateUserThunk = (id, username, email, chefScore, imageURL) => {
+  const user = {
+    id: id,
+    username: username,
+    email: email,
+    chefScore: chefScore,
+    imageURL: imageURL
+  }
+  return async (dispatch) => {
+    await axios.put(`/api/users/${user.id}`, { username: user.username, email: user.email, chefScore: user.chefScore, imageURL: user.imageURL }).data;
+    dispatch(updateUserAll(user));
+  }
+
 }
 
 export default store;
@@ -151,5 +174,6 @@ export {
   addUserThunk,
   addRecipeThunk,
   deleteUserThunk,
-  deleteRecipeThunk
+  deleteRecipeThunk,
+  updateUserThunk
 }

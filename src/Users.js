@@ -26,12 +26,12 @@ class Users extends React.Component {
         <h1>Chefs</h1>
         <ul>
           {
-            this.props.users.map(user => user.chefScore === highestScore ? <li key={user.id} className={"lists"}><img src={`images/${user.imageURL}`} /><br /><strong>***TOP CHEF***</strong><br />Username: <Link to={`/users/${user.id}`} className={"underline"}>{user.username}</Link><br />Chef Score: {user.chefScore}<br />Email:{user.email}<br /><button onClick={(ev) => this.props.deleteUser(user)}>Delete</button></li> : <li key={user.id} className={"lists"}><img src={`images/${user.imageURL}`} /><br />Username: <Link to={`/users/${user.id}`} className={"underline"}>{user.username}</Link><br />Chef Score: {user.chefScore}<br />Email:{user.email}<br /><button onClick={(ev) => this.props.deleteUser(user)}>Delete</button></li>)
+            this.props.users.map(user => user.chefScore === highestScore ? <li key={user.id} className={"lists"}><img src={`images/${user.imageURL}`} /><br /><strong>***TOP CHEF***</strong><br />Username: <Link to={`/users/${user.id}`} className={"underline"}>{user.username}</Link><br />Chef Score: {user.chefScore}<br />Email:{user.email}<br /><button onClick={(ev) => this.props.deleteUser(user)}>Delete</button></li> : <li key={user.id} className={"lists"}><img src={`images/${user.imageURL}`} /><br />Username: <Link to={`/users/${user.id}`} className={"underline"}>{user.username}</Link><br />Chef Score: {user.chefScore}<br />Email:{user.email}<br /><Link to={`/users/${user.id}`} className={"underline"}><button>Update</button></Link> <button onClick={(ev) => this.props.deleteUser(user)}>Delete</button></li>)
           }
         </ul>
         <br />
         <UserForm />
-        <br /><br /><br /> <br /> <br /> <br /> <br />
+        <br /> <br /> <br /> <br /> <br /> <br /> <br />
       </div >
     )
   }

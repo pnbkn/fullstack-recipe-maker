@@ -1,3 +1,4 @@
+
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -6,6 +7,10 @@ app.use('/api', require('./api'));
 app.use('/dist', express.static(path.join(__dirname, '../dist')));
 app.use('/images', express.static(path.join(__dirname, '../images')));
 app.get('/', (req, res, next) => { res.sendFile(path.join(__dirname, '../index.html')) });
+app.use((req, res, next) => {
+
+  res.status(404).send(Error)
+})
 
 const port = process.env.PORT || 3000;
 

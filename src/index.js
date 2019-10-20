@@ -7,6 +7,7 @@ import Home from './Home';
 import Recipes from './Recipes';
 import Recipe from './Recipe';
 import HealthiestRecipes from './HealthiestRecipes';
+import Error from './Error'
 import Users from './Users';
 import User from './User';
 import UserForm from './forms/UserForm';

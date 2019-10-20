@@ -152,7 +152,7 @@ nothing
 
 <details>
 
-- [ ] If a user attempts to add a new recipe or user without a required field, a helpful message should be displayed
+- [X] If a user attempts to add a new recipe or user without a required field, a helpful message should be displayed
 - [X] Show a special symbol/message or change the color of the user whose chefScore is the highest. You could even have tiers of chef levels (bronze, silver, gold, etc.)
 - [ ] Add a filter for cuisine type on the all recipes page
 - [ ] If a user attempts to access a page that doesn't exist (ex. `/kittens`), a helpful "not found" message should be displayed
@@ -168,7 +168,7 @@ nothing
 #### Backend
 
 - [ ] Write a route to update an existing recipe
-- [ ] Write a route to update an existing user
+- [X] Write a route to update an existing user
 
 #### Frontend
 
@@ -178,11 +178,11 @@ nothing
   - [ ] Make an AJAX request that causes that recipe to be updated in the database
   - [ ] Update the recipe in the current view without needing to refresh the page
 
-- [ ] Write a component to display a form updating a user's information
-- [ ] Display this component as part of the single-user view
+- [X] Write a component to display a form updating a user's information
+- [X] Display this component as part of the single-user view
 - Submitting the form with a valid username should:
-  - [ ] Make an AJAX request that causes that user to be updated in the database
-  - [ ] Update the user in the current view without needing to refresh the page
+  - [X] Make an AJAX request that causes that user to be updated in the database
+  - [X] Update the user in the current view without needing to refresh the page
 
 </details>
 
