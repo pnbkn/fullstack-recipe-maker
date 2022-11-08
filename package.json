@@ -35,7 +35,7 @@
     "redux-thunks": "^1.0.0",
     "style-loader": "^1.0.0",
     "webpack": "^4.41.1",
-    "webpack-cli": "^3.3.9"
+    "webpack-cli": "^3.3.12"
   },
   "dependencies": {
     "express": "^4.17.1",
